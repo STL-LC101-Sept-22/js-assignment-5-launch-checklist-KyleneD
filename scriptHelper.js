@@ -64,9 +64,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
     //console.log(pilot);
     //else {
+        list.style.visibility = 'visible';    
     pilotStatus.innerText = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerText = `Copilot ${copilot} is ready for launch`;
-    list.style.visibility = 'visible';
+    
 
     //}
 
