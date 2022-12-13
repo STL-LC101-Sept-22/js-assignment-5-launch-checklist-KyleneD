@@ -37,10 +37,10 @@ function validateInput(testInput) {
         return "Empty"
     }
     else if (!isNaN(testInput)) {
-        return "Is a number"
+        return "Is a Number"
     }
     else if (isNaN(testInput)) {
-        return "Not a number"
+        return "Not a Number"
 
     }
 
@@ -64,44 +64,43 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
     //console.log(pilot);
     //else {
-    pilotStatus.innerText = `Pilot ${pilot} is ready`;
-    copilotStatus.innerText = `Copilot ${copilot} is ready`;
+    pilotStatus.innerText = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerText = `Copilot ${copilot} is ready for launch`;
     list.style.visibility = 'visible';
 
     //}
 
     if (Number(fuelLevel) < 10000 && Number(cargoLevel) <= 10000) {
         console.log("Fuel low Cargo low")
-        fuelStatus.innerText = "Not enough fuel for journey";
+        fuelStatus.innerText = "Fuel level too low for launch";
         list.style.visibility = 'visible';
-        launchStatus.innerText = 'Shuttle not ready for launch';
+        launchStatus.innerText = 'Shuttle Not Ready for Launch';
         cargoStatus.innerText = 'Cargo mass low enough for launch'
-        launchStatus.style.color = `red`;
+        launchStatus.style.color = `rgb(199, 37, 78)`;
     }
-    else if (Number(cargoLevel) > 10000 && Number(fuelLevel) > 10000) {
+    else if (Number(cargoLevel) > 10000 && Number(fuelLevel) >= 10000) {
         console.log("Cargo high and 10000 fuel high")
-        cargoStatus.innerText = `Cargo too heavy for takeoff`;
+        cargoStatus.innerText = `Cargo mass too heavy for launch`;
         list.style.visibility = `visible`;
-        launchStatus.innerText = `Shuttle not ready for launch`;
+        launchStatus.innerText = `Shuttle Not Ready for Launch`;
         fuelStatus.innerText = "Fuel level high enough for launch";
-        launchStatus.style.color = `red`;
+        launchStatus.style.color = `rgb(199, 37, 78)`;
     }
     else if (Number(cargoLevel) <= 10000 && Number(fuelLevel) >= 10000) {
         console.log("Cargo less Fuel high")
         list.style.visibility = "visible";
-        fuelStatus.innerText = "Enough fuel for journey";
         cargoStatus.innerText = 'Cargo mass low enough for launch';
         fuelStatus.innerText = "Fuel level high enough for launch";
         launchStatus.innerText = "Shuttle ready for launch";
-        launchStatus.style.color = "green";
+        launchStatus.style.color = "rgb(65, 159, 106)";
     }
     else if (Number(cargoLevel) > 10000 && Number(fuelLevel) < 10000) {
         console.log("Cargo less Fuel less")
         cargoStatus.innerText = `Cargo too heavy for takeoff`;
         list.style.visibility = `visible`;
-        launchStatus.innerText = `Shuttle not ready for launch`;
-        fuelStatus.innerText = "Fuel level not enough for launch";
-        launchStatus.style.color = `red`;
+        launchStatus.innerText = `Shuttle Not Ready for Launch`;
+        fuelStatus.innerText = "Fuel level too low for launch";
+        launchStatus.style.color = `rgb(199, 37, 78)`;
     }
 }
 
